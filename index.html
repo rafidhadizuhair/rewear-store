@@ -19,50 +19,53 @@
 <!-- ================= NAVBAR ================= -->
   <nav class="sticky top-0 z-40 bg-white/95 border-b border-gray-200 glassmorphism">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 gap-2">
+      <div class="flex items-center justify-between h-16">
         
-        <!-- Brand / Logo -->
-        <div class="flex items-center gap-2.5 cursor-pointer flex-shrink-0" onclick="navigate('home')">
-          <div class="w-9 h-9 bg-black text-white flex items-center justify-center font-black text-lg rounded-xl tracking-tighter shadow-sm">
-            RW
+        <!-- Sisi Kiri: Logo + Menu Link (Menyatu Rapi) -->
+        <div class="flex items-center gap-8">
+          <!-- Logo RW -->
+          <div class="flex items-center gap-2.5 cursor-pointer" onclick="navigate('home')">
+            <div class="w-9 h-9 bg-black text-white flex items-center justify-center font-black text-lg rounded-xl tracking-tighter shadow-sm">
+              RW
+            </div>
+            <div>
+              <span class="font-extrabold text-lg tracking-tight text-gray-950 block leading-tight">REWEAR</span>
+              <span class="text-[9px] block font-bold text-emerald-600 uppercase tracking-wider">Preloved</span>
+            </div>
           </div>
-          <div>
-            <span class="font-extrabold text-lg tracking-tight text-gray-950 block leading-tight">REWEAR</span>
-            <span class="text-[9px] block font-bold text-emerald-600 uppercase tracking-wider">Preloved</span>
+
+          <!-- Nav Menu Desktop (Muncul di samping logo di desktop, hilang di HP) -->
+          <div class="hidden md:flex items-center gap-6">
+            <button onclick="navigate('home')" class="text-sm font-semibold text-gray-700 hover:text-black transition">Katalog</button>
+            <button onclick="navigate('contact')" class="text-sm font-semibold text-gray-700 hover:text-black transition">Kontak Kami</button>
+            
+            <div id="nav-user-menu" class="hidden flex items-center gap-5">
+              <button onclick="navigate('orders')" class="text-sm font-semibold text-gray-700 hover:text-black transition">Pesanan Saya</button>
+              <button onclick="navigate('cart')" class="relative p-2 text-gray-700 hover:text-black">
+                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                <span id="cart-badge" class="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        <!-- Navigation Links (Hanya muncul di Layar Laptop/Desktop) -->
-        <div class="hidden md:flex items-center gap-5">
-          <button onclick="navigate('home')" class="text-sm font-semibold hover:text-black transition">Katalog</button>
-          <button onclick="navigate('contact')" class="text-sm font-semibold hover:text-black transition">Kontak Kami</button>
-          
-          <div id="nav-user-menu" class="hidden flex items-center gap-4">
-            <button onclick="navigate('orders')" class="text-sm font-semibold hover:text-black transition">Pesanan Saya</button>
-            <button onclick="navigate('cart')" class="relative p-2 text-gray-700 hover:text-black">
-              <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-              <span id="cart-badge" class="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Sisi Kanan: Auth & Admin (Rapi di Layar HP & Laptop) -->
-        <div class="flex items-center gap-2 flex-shrink-0">
-          <!-- Admin Button -->
-          <button id="nav-admin-btn" onclick="navigate('admin')" class="hidden text-xs bg-gray-900 text-white px-2.5 py-1.5 rounded-lg font-medium hover:bg-black">
-            Admin
+        <!-- Sisi Kanan: Auth & Admin Panel -->
+        <div class="flex items-center gap-3">
+          <!-- Tombol Admin (Jika Login Admin) -->
+          <button id="nav-admin-btn" onclick="navigate('admin')" class="hidden text-xs bg-gray-900 text-white px-3 py-1.5 rounded-lg font-medium hover:bg-black transition">
+            Admin Panel
           </button>
 
-          <!-- Auth Buttons saat Belum Login -->
-          <div id="auth-buttons" class="flex items-center gap-1.5">
-            <button onclick="openAuthModal('login')" class="text-xs sm:text-sm font-semibold px-2.5 py-1.5 text-gray-700 hover:text-black">Masuk</button>
-            <button onclick="openAuthModal('register')" class="text-xs sm:text-sm font-semibold px-3 py-1.5 bg-black text-white rounded-xl hover:bg-gray-800 transition">Daftar</button>
+          <!-- Auth Tombol saat Belum Login -->
+          <div id="auth-buttons" class="flex items-center gap-2">
+            <button onclick="openAuthModal('login')" class="text-xs sm:text-sm font-semibold px-3 py-1.5 text-gray-700 hover:text-black transition">Masuk</button>
+            <button onclick="openAuthModal('register')" class="text-xs sm:text-sm font-semibold px-3.5 py-1.5 bg-black text-white rounded-xl hover:bg-gray-800 transition">Daftar</button>
           </div>
 
-          <!-- User Info saat Sudah Login -->
-          <div id="user-info-box" class="hidden items-center gap-1.5">
-            <span id="logged-user-name" class="text-xs font-bold bg-gray-100 px-2.5 py-1 rounded-lg border border-gray-200 truncate max-w-[100px] sm:max-w-none"></span>
-            <button onclick="logout()" class="p-1.5 text-red-500 hover:bg-red-50 rounded-lg" title="Logout">
+          <!-- Profil saat Sudah Login -->
+          <div id="user-info-box" class="hidden items-center gap-2">
+            <span id="logged-user-name" class="text-xs font-bold bg-gray-100 px-3 py-1.5 rounded-lg border border-gray-200"></span>
+            <button onclick="logout()" class="p-2 text-red-500 hover:bg-red-50 rounded-lg transition" title="Logout">
               <i data-lucide="log-out" class="w-4 h-4"></i>
             </button>
           </div>
