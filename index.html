@@ -47,14 +47,14 @@
           <div class="flex items-center gap-3 md:gap-5">
             <button
               onclick="navigate('home')"
-              class="text-sm font-semibold hover:text-black transition hidden md:block"
+              class="text-sm font-semibold hover:text-black transition"
             >
               Katalog
             </button>
 
             <button
               onclick="navigate('contact')"
-              class="text-sm font-semibold hover:text-black transition hidden md:block"
+              class="text-sm font-semibold hover:text-black transition"
             >
               Kontak Kami
             </button>
@@ -125,7 +125,7 @@
     </nav>
 
     <!-- ================= MAIN CONTAINER ================= -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 md:pb-8 w-full">
       <!-- 1. HOME / KATALOG VIEW -->
       <section id="view-home">
         <!-- Hero Banner -->
@@ -1794,5 +1794,28 @@
       // Jalankan aplikasi saat file dibuka
       window.addEventListener("DOMContentLoaded", initApp);
     </script>
+    <!-- Mobile Bottom Navigation (Hanya muncul di layar HP) -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 border-t border-gray-200 glassmorphism px-4 py-2 flex justify-around items-center">
+  <button onclick="navigate('home')" class="flex flex-col items-center text-gray-600 hover:text-black">
+    <i data-lucide="store" class="w-5 h-5"></i>
+    <span class="text-[10px] font-semibold mt-0.5">Katalog</span>
+  </button>
+  
+  <button onclick="navigate('cart')" class="flex flex-col items-center text-gray-600 hover:text-black relative">
+    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+    <span class="text-[10px] font-semibold mt-0.5">Keranjang</span>
+  </button>
+
+  <button onclick="navigate('orders')" class="flex flex-col items-center text-gray-600 hover:text-black">
+    <i data-lucide="receipt" class="w-5 h-5"></i>
+    <span class="text-[10px] font-semibold mt-0.5">Pesanan</span>
+  </button>
+
+  <!-- Tombol Kontak di Layar HP -->
+  <button onclick="navigate('contact')" class="flex flex-col items-center text-gray-600 hover:text-black">
+    <i data-lucide="message-square" class="w-5 h-5"></i>
+    <span class="text-[10px] font-semibold mt-0.5">Kontak</span>
+  </button>
+</div>
   </body>
 </html>
