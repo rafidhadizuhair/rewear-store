@@ -21,44 +21,44 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         
-        <!-- Sisi Kiri: Logo + Menu Link (Menyatu Rapi) -->
-        <div class="flex items-center gap-8">
-          <!-- Logo RW -->
-          <div class="flex items-center gap-2.5 cursor-pointer" onclick="navigate('home')">
-            <div class="w-9 h-9 bg-black text-white flex items-center justify-center font-black text-lg rounded-xl tracking-tighter shadow-sm">
-              RW
-            </div>
-            <div>
-              <span class="font-extrabold text-lg tracking-tight text-gray-950 block leading-tight">REWEAR</span>
-              <span class="text-[9px] block font-bold text-emerald-600 uppercase tracking-wider">Preloved</span>
-            </div>
+        <!-- Sisi Kiri: Murni Hanya Logo -->
+        <div class="flex items-center gap-2.5 cursor-pointer flex-shrink-0" onclick="navigate('home')">
+          <div class="w-9 h-9 bg-black text-white flex items-center justify-center font-black text-lg rounded-xl tracking-tighter shadow-sm">
+            RW
           </div>
-
-          <!-- Nav Menu Desktop (Muncul di samping logo di desktop, hilang di HP) -->
-          <div class="hidden md:flex items-center gap-6">
-            <button onclick="navigate('home')" class="text-sm font-semibold text-gray-700 hover:text-black transition">Katalog</button>
-            <button onclick="navigate('contact')" class="text-sm font-semibold text-gray-700 hover:text-black transition">Kontak Kami</button>
-            
-            <div id="nav-user-menu" class="hidden flex items-center gap-5">
-              <button onclick="navigate('orders')" class="text-sm font-semibold text-gray-700 hover:text-black transition">Pesanan Saya</button>
-              <button onclick="navigate('cart')" class="relative p-2 text-gray-700 hover:text-black">
-                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                <span id="cart-badge" class="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
-              </button>
-            </div>
+          <div>
+            <span class="font-extrabold text-lg tracking-tight text-gray-950 block leading-tight">REWEAR</span>
+            <span class="text-[9px] block font-bold text-emerald-600 uppercase tracking-wider">Preloved</span>
           </div>
         </div>
 
-        <!-- Sisi Kanan: Auth & Admin Panel -->
-        <div class="flex items-center gap-3">
-          <!-- Tombol Admin (Jika Login Admin) -->
+        <!-- Sisi Kanan: Menu Navigasi + Auth (Menyatu Mepet di Kanan) -->
+        <div class="flex items-center gap-4 sm:gap-6">
+          <!-- Nav Menu Desktop (Terselip Rapi Sebelum Tombol Masuk) -->
+          <div class="hidden md:flex items-center gap-5">
+            <button onclick="navigate('home')" class="text-sm font-semibold text-gray-700 hover:text-black transition">Katalog</button>
+            <button onclick="navigate('contact')" class="text-sm font-semibold text-gray-700 hover:text-black transition">Kontak Kami</button>
+            
+            <div id="nav-user-menu" class="hidden flex items-center gap-4 border-l pl-4 border-gray-200">
+              <button onclick="navigate('orders')" class="text-sm font-semibold text-gray-700 hover:text-black transition">Pesanan Saya</button>
+              <button onclick="navigate('cart')" class="relative p-1.5 text-gray-700 hover:text-black">
+                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                <span id="cart-badge" class="absolute -top-1 -right-1 bg-emerald-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Garis Pemisah Tipis di Desktop -->
+          <div class="hidden md:block h-5 w-[1px] bg-gray-200"></div>
+
+          <!-- Tombol Admin (Jika Role Admin) -->
           <button id="nav-admin-btn" onclick="navigate('admin')" class="hidden text-xs bg-gray-900 text-white px-3 py-1.5 rounded-lg font-medium hover:bg-black transition">
-            Admin Panel
+            Admin
           </button>
 
           <!-- Auth Tombol saat Belum Login -->
-          <div id="auth-buttons" class="flex items-center gap-2">
-            <button onclick="openAuthModal('login')" class="text-xs sm:text-sm font-semibold px-3 py-1.5 text-gray-700 hover:text-black transition">Masuk</button>
+          <div id="auth-buttons" class="flex items-center gap-2 flex-shrink-0">
+            <button onclick="openAuthModal('login')" class="text-xs sm:text-sm font-semibold px-2.5 py-1.5 text-gray-700 hover:text-black transition">Masuk</button>
             <button onclick="openAuthModal('register')" class="text-xs sm:text-sm font-semibold px-3.5 py-1.5 bg-black text-white rounded-xl hover:bg-gray-800 transition">Daftar</button>
           </div>
 
@@ -74,7 +74,6 @@
       </div>
     </div>
   </nav>
-
     <!-- ================= MAIN CONTAINER ================= -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 md:pb-8 w-full">
       <!-- 1. HOME / KATALOG VIEW -->
